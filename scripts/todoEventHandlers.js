@@ -45,7 +45,7 @@ const removeTodo = function (e, originalId) {
   const state = getState();
 
   if (e.target.closest(".todo__btn-delete")) {
-    newState = state.todos.filter((el) => el.originalId !== originalId);
+    let newState = state.todos.filter((el) => el.originalId !== originalId);
     updateTodoState(newState);
     const todoElement = e.target.closest("li");
     removeTodoElements(todoElement);
@@ -96,7 +96,7 @@ export const handleFormSubmit = function (e) {
     originalId: uuidv4(),
     status: "active",
   };
-  newState = [...state.todos, newTodo];
+  let newState = [...state.todos, newTodo];
   updateTodoState(newState);
 
   if (state.appliedFilter !== "completed") {
