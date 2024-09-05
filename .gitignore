@@ -1,0 +1,5 @@
+node_modules
+*.fig
+.DS_Store
+.prettierignore
+.parcel-cache

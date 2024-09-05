@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simple TODO application that will help you to manage your goals and routines">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <script type="module" src="/scripts/index.js"></script>
+  <title>ToDo Application</title>
+
+</head>
+
+<body>
+  <main>
+    <section class="todo">
+      <div class="container">
+        <header class="todo__header">
+          <h1 class="heading--primary">TODO</h1>
+          <button class="btn  darkmode-btn" aria-pressed="false" aria-label="Toggle dark mode">
+            <img src="./images/icon-moon.svg" class=" img-darkmode" alt="icon to toggle dark/light mode" />
+
+          </button>
+          <form class="todo__form card">
+            <div class="checkboxcircle" role="presentation">
+
+            </div>
+            <input aria-required="true" aria-labelledby="notyf__message" class="input par todo__input"
+              placeholder="Create a new todo…" />
+
+          </form>
+
+        </header>
+        <div class="todo__wrapper">
+          <ul class="todo__list">
+
+          </ul>
+
+          <div class="todo__controls">
+            <p class="par--small card todo__controls-count">
+              <span class="todo__count-number">5</span> <span class="todo__count-text">items</span> left
+            </p>
+            <div class="todo__controls-wrapper card">
+              <button data-filter-type="all" id="todo__controls-btn-all" aria-pressed="true"
+                class="btn par--small todo__controls-btn todo__controls-btn--active">
+                All
+              </button>
+              <button data-filter-type="active" id="todo__controls-btn-active" aria-pressed="false"
+                class="btn par--small todo__controls-btn">
+                Active
+              </button>
+              <button data-filter-type="completed" id="todo__controls-btn-completed" aria-pressed="false"
+                class="btn par--small todo__controls-btn">
+                Completed
+              </button>
+
+            </div>
+
+            <button id="todo__controls-btn-clear" class="btn par--small todo__controls-btn card">
+              Clear Completed
+            </button>
+
+          </div>
+        </div>
+        <p class="par--small todo__text-info">Drag and drop to reorder list</p>
+      </div>
+    </section>
+
+  </main>
+</body>

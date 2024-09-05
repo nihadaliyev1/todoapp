@@ -1,0 +1,56 @@
+@layer variables {
+  :root {
+    /* Colors */
+    --clr-primary: #494c6b;
+    --clr-primary-drk: #393a4b;
+    --clr-secondary: #9495a5;
+    --clr-secondary-ltr: #d1d2da;
+    --clr-white: #fff;
+    --clr-bckgrnd: #fafafa;
+    --clr-bord: #e3e4f1;
+    --clr-active: #3a7cfd;
+    --clr-shadow: rgba(194, 195, 214, 0.5);
+    --clr-error: #ff4c4c;
+    --clr-placeholder: #9495a5;
+    --clr-card: #fff;
+    --clr-btn-hover: #494c6b;
+    --clr-input: #393a4b;
+
+    /* Font Sizes */
+
+    --fs-body: 1.8rem;
+    --fs-sml: 1.4rem;
+    --fs-lrg: 4rem;
+    --fs-med: 3.2rem;
+    --fs-body-mbl: 1.2rem;
+
+    /* Letter Spacing */
+
+    --ls-body: -0.25px;
+    --ls-lrg: 1.5rem;
+    --ls-sml: -0.2px;
+
+    /* Font Family */
+    --ff-base: "Josefin Sans", sans-serif;
+
+    /* Layout */
+
+    --cntr-size: 54rem;
+    --cntr-padding: 2.5rem;
+
+    /* Border-radius */
+
+    --br--sml: 5px;
+
+    /* Spacing */
+
+    --sp-gap-stnd: 2.4rem;
+
+    @media only screen and (max-width: 30em) {
+      --sp-gap-stnd: 1.6rem;
+    }
+
+    /* Shadow */
+    --shadow--stnd: 0 3.5rem 5rem -1.5rem var(--clr-shadow);
+  }
+}

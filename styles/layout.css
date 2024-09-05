@@ -1,0 +1,7 @@
+@layer layout {
+  .container {
+    max-width: calc(var(--cntr-size) + 2 * var(--cntr-padding));
+    padding: 0 var(--cntr-padding);
+    margin: 0 auto;
+  }
+}

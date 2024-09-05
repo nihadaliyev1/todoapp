@@ -1,0 +1,25 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "Nihad Aliyev",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.12.0",
+    "@parcel/transformer-webmanifest": "^2.12.0",
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "dompurify": "^3.1.6",
+    "gsap": "^3.12.5",
+    "notyf": "^3.10.0",
+    "sortablejs": "^1.15.3",
+    "uuid": "^10.0.0"
+  }
+}

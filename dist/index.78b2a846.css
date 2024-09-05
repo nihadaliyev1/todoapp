@@ -1,0 +1,434 @@
+@layer variables {
+  :root {
+    --clr-primary: #494c6b;
+    --clr-primary-drk: #393a4b;
+    --clr-secondary: #9495a5;
+    --clr-secondary-ltr: #d1d2da;
+    --clr-white: #fff;
+    --clr-bckgrnd: #fafafa;
+    --clr-bord: #e3e4f1;
+    --clr-active: #3a7cfd;
+    --clr-shadow: #c2c3d680;
+    --clr-error: #ff4c4c;
+    --clr-placeholder: #9495a5;
+    --clr-card: #fff;
+    --clr-btn-hover: #494c6b;
+    --clr-input: #393a4b;
+    --fs-body: 1.8rem;
+    --fs-sml: 1.4rem;
+    --fs-lrg: 4rem;
+    --fs-med: 3.2rem;
+    --fs-body-mbl: 1.2rem;
+    --ls-body: -.25px;
+    --ls-lrg: 1.5rem;
+    --ls-sml: -.2px;
+    --ff-base: "Josefin Sans", sans-serif;
+    --cntr-size: 54rem;
+    --cntr-padding: 2.5rem;
+    --br--sml: 5px;
+    --sp-gap-stnd: 2.4rem;
+    --shadow--stnd: 0 3.5rem 5rem -1.5rem var(--clr-shadow);
+
+    @media only screen and (width <= 30em) {
+      & {
+        --sp-gap-stnd: 1.6rem;
+      }
+    }
+  }
+}
+
+@layer base {
+  *, :before, :after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--clr-active);
+    outline-offset: 2px;
+    box-shadow: 0 0 5px var(--clr-active), 0 0 10px var(--clr-shadow);
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    color: var(--clr-primary);
+    font-weight: 400;
+    font-family: var(--ff-base);
+    background-color: var(--clr-bckgrnd);
+    color-scheme: light;
+
+    &:after {
+      content: "";
+      z-index: -100;
+      background: url("bg-desktop-light.bd4b12c3.jpg") 0 0 / cover no-repeat;
+      width: 100%;
+      height: 35vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &.dark:after {
+      background: url("bg-desktop-dark.953b245d.jpg") 0 0 / cover no-repeat;
+    }
+  }
+
+  body.dark {
+    color-scheme: dark;
+    --clr-bckgrnd: #171823;
+    --clr-placeholder: #767992;
+    --clr-card: #25273d;
+    --clr-bord: #393a4b;
+    --clr-btn-hover: #e3e4f1;
+    --clr-input: #c8cbe7;
+    --clr-secondary: #5b5e7e;
+    --clr-primary: #c8cbe7;
+    --clr-shadow: #00000080;
+    --shadow--stnd: 0 3.5rem 5rem -1.5rem var(--clr-shadow);
+  }
+}
+
+@layer components {
+  .heading--primary {
+    font-size: var(--fs-lrg);
+    letter-spacing: var(--ls-lrg);
+    color: var(--clr-white);
+
+    @media only screen and (width <= 30em) {
+      & {
+        font-size: var(--fs-med);
+      }
+    }
+  }
+
+  .par {
+    font-size: var(--fs-body);
+    letter-spacing: var(--ls-body);
+    color: var(--clr-primary);
+
+    @media only screen and (width <= 30em) {
+      & {
+        font-size: var(--fs-body-mbl);
+        letter-spacing: var(--ls-sml);
+      }
+    }
+  }
+
+  .par--small {
+    font-size: var(--fs-sml);
+    letter-spacing: var(--ls-sml);
+    color: var(--clr-secondary);
+
+    @media only screen and (width <= 30em) {
+      & {
+        font-size: var(--fs-body-mbl);
+        letter-spacing: var(--ls-sml);
+      }
+    }
+  }
+
+  .checkboxcircle {
+    border: 1px solid var(--clr-bord);
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+  }
+
+  .input {
+    display: inline-block;
+  }
+
+  .card {
+    background-color: var(--clr-card);
+    padding: 2rem 2.4rem;
+  }
+
+  .img {
+    width: 100%;
+  }
+}
+
+@layer layout {
+  .container {
+    max-width: calc(var(--cntr-size)  + 2 * var(--cntr-padding));
+    padding: 0 var(--cntr-padding);
+    margin: 0 auto;
+  }
+}
+
+@layer todo {
+  .todo {
+    margin-top: 7rem;
+  }
+
+  .todo__header {
+    margin-bottom: var(--sp-gap-stnd);
+    grid-template-columns: 1fr min-content;
+    align-items: center;
+    row-gap: 4rem;
+    display: grid;
+  }
+
+  .todo__form {
+    align-items: center;
+    gap: var(--sp-gap-stnd);
+    border-radius: 5px;
+    grid-column: 1 / -1;
+    display: flex;
+  }
+
+  .todo__input {
+    font-family: var(--ff-base);
+    background-color: var(--clr-card);
+    color: var(--clr-input);
+    border: none;
+    outline: none;
+    flex: 1;
+
+    &::placeholder {
+      color: var(--clr-placeholder);
+      transition: all .2s;
+    }
+
+    &:focus-visible {
+      outline-offset: 1rem;
+      box-shadow: none;
+      border-radius: 6px;
+      outline: 3px solid #007bff80;
+      transition: box-shadow .2s ease-in-out;
+    }
+  }
+
+  .todo__checkbox {
+    appearance: none;
+    cursor: pointer;
+    place-content: center;
+    display: grid;
+
+    &:hover {
+      box-shadow: inset 0 100vw var(--clr-card);
+      background-image: linear-gradient(to bottom right, #5df 0%, #c058f3 100%);
+      background-origin: border-box;
+      border: 1px solid #0000;
+      transition: transform .2s;
+    }
+
+    &:before {
+      content: "";
+      background-image: url("icon-check.8917ad3b.svg"), linear-gradient(to bottom right, #5df 0%, #c058f3 100%);
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      width: 2.4rem;
+      height: 2.4rem;
+      transition: transform .2s;
+      transform: scale(0);
+    }
+
+    &:checked:before {
+      transform: scale(1);
+    }
+
+    &:checked + .todo__description-wrapper .todo__description {
+      color: var(--clr-secondary-ltr);
+      text-decoration: line-through;
+
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  .todo__wrapper {
+    background-color: var(--clr-card);
+    border-radius: var(--br--sml);
+    box-shadow: var(--shadow--stnd);
+    overflow: hidden;
+
+    @media only screen and (width <= 30em) {
+      & {
+        box-shadow: none;
+        background-color: #0000;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .todo__item {
+    align-items: center;
+    gap: var(--sp-gap-stnd);
+    border-bottom: 1px solid var(--clr-bord);
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: grab;
+    display: flex;
+
+    &:hover .todo__btn-delete {
+      display: block;
+    }
+  }
+
+  .todo__filtered {
+    & .todo__item {
+      cursor: auto;
+    }
+  }
+
+  .todo__item--done {
+    color: var(--clr-secondary-ltr);
+  }
+
+  .todo__description {
+    line-break: anywhere;
+    width: fit-content;
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      content: "";
+      background-color: currentColor;
+      width: 0%;
+      height: 1px;
+      transition: width .6s;
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+  }
+
+  .todo__description-wrapper {
+    width: 80%;
+
+    @media only screen and (width <= 30em) {
+      & {
+        width: 70%;
+      }
+    }
+  }
+
+  .todo__controls {
+    justify-content: space-between;
+    display: flex;
+
+    @media only screen and (width <= 30em) {
+      & {
+        row-gap: var(--sp-gap-stnd);
+        grid-template-columns: 1fr minmax(min-content, 15rem);
+        display: grid;
+      }
+    }
+  }
+
+  .todo__controls-btn {
+    transition: color .2s;
+
+    &:hover, &:focus-visible {
+      color: var(--clr-btn-hover);
+    }
+
+    @media only screen and (width <= 30em) {
+      & {
+        border-radius: 0 var(--br--sml) var(--br--sml) 0;
+        text-align: right;
+      }
+    }
+  }
+
+  .todo__controls-wrapper {
+    gap: 2rem;
+    display: flex;
+
+    & .todo__controls-btn {
+      font-weight: 700;
+    }
+
+    @media only screen and (width <= 30em) {
+      & {
+        border-radius: var(--br--sml);
+        grid-area: 2 / 1 / auto / -1;
+        place-content: center;
+      }
+    }
+  }
+
+  .todo__controls-count {
+    @media only screen and (width <= 30em) {
+      & {
+        border-radius: var(--br--sml) 0 0 var(--br--sml);
+      }
+    }
+  }
+
+  .todo__controls-btn--active {
+    color: var(--clr-active);
+
+    &:hover {
+      color: var(--clr-active);
+    }
+  }
+
+  .todo__text-info {
+    text-align: center;
+    margin-top: 5rem;
+  }
+
+  .todo__btn-delete {
+    transition: all .25s, display 50ms allow-discrete;
+    margin-left: auto;
+    display: none;
+
+    @starting-style {
+      & {
+        opacity: 0;
+      }
+    }
+
+    @media only screen and (width <= 48em) {
+      & {
+        display: block;
+      }
+    }
+
+    @media only screen and (width <= 30em) {
+      & {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+
+  .todo__notification {
+    font-size: var(--fs-body);
+  }
+
+  .todo__form--error {
+    box-shadow: 0 0 0 3px var(--clr-error);
+
+    & .todo__input::placeholder {
+      color: var(--clr-error);
+    }
+  }
+
+  .todo__list {
+    transition: all .2s;
+
+    @media only screen and (width <= 30em) {
+      & {
+        border-radius: var(--br--sml) var(--br--sml) 0 0;
+        overflow: hidden;
+      }
+    }
+  }
+}
+/*# sourceMappingURL=index.78b2a846.css.map */

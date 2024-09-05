@@ -1,0 +1,58 @@
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  *:focus-visible {
+    outline: 3px solid var(--clr-active);
+    outline-offset: 2px;
+    box-shadow: 0 0 5px var(--clr-active), 0 0 10px var(--clr-shadow);
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    color: var(--clr-primary);
+    font-weight: 400;
+    font-family: var(--ff-base);
+    background-color: var(--clr-bckgrnd);
+    color-scheme: light;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 35vh;
+      background: no-repeat url(/images/bg-desktop-light.jpg);
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -100;
+    }
+
+    &:is(.dark)::after {
+      background: no-repeat url(/images/bg-desktop-dark.jpg);
+      background-size: cover;
+    }
+  }
+
+  body.dark {
+    color-scheme: dark;
+    --clr-bckgrnd: #171823;
+    --clr-placeholder: #767992;
+    --clr-card: #25273d;
+    --clr-bord: #393a4b;
+    --clr-btn-hover: #e3e4f1;
+    --clr-input: #c8cbe7;
+    --clr-secondary: #5b5e7e;
+    --clr-primary: #c8cbe7;
+    --clr-shadow: rgba(0, 0, 0, 0.5);
+    --shadow--stnd: 0 3.5rem 5rem -1.5rem var(--clr-shadow);
+  }
+}
