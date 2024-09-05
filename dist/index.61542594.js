@@ -10097,7 +10097,7 @@ const initializeControls = function() {
         const state = (0, _storage.getState)();
         const allCompletedTodos = Array.from(document.querySelectorAll(".todo__item[data-status='completed']"));
         const completedTodosIds = allCompletedTodos.map((el)=>+el.dataset.id);
-        newState = state.todos.filter((todo)=>!completedTodosIds.includes(todo.id));
+        let newState = state.todos.filter((todo)=>!completedTodosIds.includes(todo.id));
         (0, _storage.updateTodoState)(newState);
         (0, _todoDomUtils.removeTodoElements)(allCompletedTodos);
     });

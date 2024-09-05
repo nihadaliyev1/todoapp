@@ -37,7 +37,8 @@ export const initializeControls = function () {
       document.querySelectorAll(".todo__item[data-status='completed']")
     );
     const completedTodosIds = allCompletedTodos.map((el) => +el.dataset.id);
-    newState = state.todos.filter(
+
+    let newState = state.todos.filter(
       (todo) => !completedTodosIds.includes(todo.id)
     );
     updateTodoState(newState);
